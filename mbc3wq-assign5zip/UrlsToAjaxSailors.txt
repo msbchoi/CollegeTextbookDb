@@ -1,0 +1,10 @@
+Index: Appears by Default when one goes to...
+https://cs4750.cs.virginia.edu/~mbc3wq/ajax/ajaxSailors/
+But a Direct link is:
+https://cs4750.cs.virginia.edu/~mbc3wq/ajax/ajaxSailors/index.html
+
+DButil:
+https://cs4750.cs.virginia.edu/~mbc3wq/ajax/ajaxSailors/dbutil.php
+
+Search Sailor Names:
+https://cs4750.cs.virginia.edu/~mbc3wq/ajax/ajaxSailors/searchSailorNames.php
