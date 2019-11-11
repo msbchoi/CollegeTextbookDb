@@ -60,6 +60,9 @@ function prep_list()
 		<ol id = "list_of_pages">
 			
 		</ol>
+		<a href = "account.php" />Edit my account </a>
+		<a href = "class_search_test_home.php" />Course Search </a>
 	</div>
+	
 </body>
 </html>

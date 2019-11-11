@@ -23,7 +23,7 @@
 			$schema = "mev8vy"; 
 			$db = DbUtil::loginConnection($_POST['username'], $_POST['pwd']);
 			$_SESSION['user'] = $_POST['username'];
-			$_SESSION['pwd'] = $_POST['password'];
+			$_SESSION['pwd'] = $_POST['pwd'];
 			#from here on out, every time you want to connect to the db call the loginConnection function with the $_SESSION['user'] and 
 			# $_SESSION['pwd'] as arguments
 			
