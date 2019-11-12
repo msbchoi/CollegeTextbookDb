@@ -16,14 +16,63 @@
 	{
 		
 		
+		
+		
 		if(!empty($_POST['username']) && strlen($_POST['username']) > 0 && !empty($_POST['pwd']) && strlen($_POST['pwd']) > 0)
 		{
 			require "dbutil.php";
 			$host = "cs4750.cs.virginia.edu";
 			$schema = "mev8vy"; 
-			$db = DbUtil::loginConnection($_POST['username'], $_POST['pwd']);
-			$_SESSION['user'] = $_POST['username'];
-			$_SESSION['pwd'] = $_POST['pwd'];
+			$db = DbUtil::loginConnection('mev8vy_b', 'ahG1zee5');
+			
+			#$stmt = $db->stmt_init();
+	
+			
+			
+			$query = "SELECT * FROM P_USERTABLE WHERE Username =:curr_user AND Password =:curr_password";
+			$statement = $db->prepare($query);
+			$statement->bindValue(':curr_user', $_POST['username']);
+			$statement->bindValue(':pwd', $_POST['pwd']);
+			$statement->execute();
+			$results = $statement->fetchAll();
+			$statement->closecursor();
+			
+			if (!empty($results))
+			{
+				
+				$_SESSION['user'] = $_POST['username'];
+				$_SESSION['pwd'] = $_POST['pwd'];
+			
+				foreach($results as $result)
+				{
+					$acct_level = $result['Type'];
+					if($acct_level == 0)
+					{
+						$_SESSION['level'] = 'mev8vy_b';
+					}
+					else if ($acct_level == 1)
+					{
+						$_SESSION['level'] = 'mev8vy_d';
+					}
+					else if ($acct_level == 2)
+					{
+						$_SESSION['level'] = 'mev8vy_a';
+					}
+					
+					#echo $disp_rideavg;
+				}
+				
+			}
+			else
+			{
+				#error handling
+			}
+			
+			
+			
+			
+			#$_SESSION['user'] = $_POST['username'];
+			#$_SESSION['pwd'] = $_POST['pwd'];
 			#from here on out, every time you want to connect to the db call the loginConnection function with the $_SESSION['user'] and 
 			# $_SESSION['pwd'] as arguments
 			
