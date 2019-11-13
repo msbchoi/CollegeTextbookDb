@@ -16,17 +16,23 @@
 function prep_list()
 		{
 			
-			var usr = <?php echo json_encode($_SESSION['user']); ?>;
+			var usr_level  = <?php echo json_encode($_SESSION['level']); ?>;
 			<!-- We print a few things common to all users-->
 			var page_ol = document.getElementById("list_of_pages");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
 			var common_urls = ["search", "page2", "page3"];
 			<!-- this array contains the hyperlink text, like "Click here to see all classes" -->
 			var common_desc = ["Search for class", "Go to page 2", "Go to page 3"];
-			<!-- Fill this next array with whatever stuff only mev8vy_a, the highest privilege user should be able to see -->
-			var lv1_urls = ["lv1page4"];
 			
-			var lv1_desc = ["You can see this because you're a level 1 user!"];
+			<!--urls and descriptions for teacher only pages -->
+			var teacher_urls = ["Teacherurl1"];
+			var teacher_desc = ["You can see this because you're a teacher or higher"];
+			
+			<!-- Fill this next array with whatever stuff only the admins, the highest privilege users should be able to see -->
+		
+
+			var admin_urls = ["lv1page4"];
+			var admin_desc = ["You can see this because you're a level 1 user!"];
 			
 			
 			for(i=0; i< common_urls.length; i++)
@@ -38,16 +44,24 @@ function prep_list()
 					
 				}
 			
-			if(usr == "mev8vy_a")
+			if(usr_level >= 1)
 			{
-				for(i = 0; i<lv1_urls.length; i++)
+				for(i = 0; i<teacher_urls.length; i++)
 				{
 					var page_li = document.createElement("LI");
-					page_li.innerHTML = "<a href = \""+lv1_urls[i]+".php\"/>"+lv1_desc[i]+"</a>";
+					page_li.innerHTML = "<a href = \""+teacher_urls[i]+".php\"/>"+teacher_desc[i]+"</a>";
 					page_ol.appendChild(page_li);
 				}
 			} 
-			
+			if(usr_level == 2)
+			{
+				for(i = 0; i<admin_urls.length; i++)
+				{
+					var page_li = document.createElement("LI");
+					page_li.innerHTML = "<a href = \""+admin_urls[i]+".php\"/>"+admin_desc[i]+"</a>";
+					page_ol.appendChild(page_li);
+				}
+			}
 			
 		}
 		</script>
