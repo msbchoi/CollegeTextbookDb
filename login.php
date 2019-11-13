@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-  <meta name="author" content="Matt Vick, Yoon Kim">
   <title>Login</title>    
 </head>
 
@@ -25,56 +24,55 @@
 			$schema = "mev8vy"; 
 			$db = DbUtil::loginConnection('mev8vy_b', 'ahG1zee5');
 			
-			#$stmt = $db->stmt_init();
+			$stmt = $db->stmt_init();
 	
 			
 			
-			$query = "SELECT * FROM P_USERTABLE WHERE Username =:curr_user AND Password =:curr_password";
+			$query = "SELECT * FROM P_USERTABLE WHERE Username = ? AND Password =?";
 			$statement = $db->prepare($query);
-			$statement->bindValue(':curr_user', $_POST['username']);
-			$statement->bindValue(':pwd', $_POST['pwd']);
+			
+			#$error = $db->errno . ' ' . $db->error;
+			#echo $error;
+			
+			#$statement->bindValue(':curr_user', $_POST['username']);
+			#$statement->bindValue(':pwd', $_POST['pwd']);
+			$statement->bind_param('ss', $_POST['username'], $_POST['pwd']);
+			
 			$statement->execute();
-			$results = $statement->fetchAll();
-			$statement->closecursor();
+			$statement->bind_result($user, $userpw, $usertype);
+			#$results = $statement->fetchAll();
 			
-			if (!empty($results))
+			
+			while($statement->fetch())
 			{
+				$_SESSION['user'] = $user;
+				$_SESSION['pwd'] = $userpw;
+				$_SESSION['levelpwd'] = 'ahG1zee5';
 				
-				$_SESSION['user'] = $_POST['username'];
-				$_SESSION['pwd'] = $_POST['pwd'];
-			
-				foreach($results as $result)
+				if($usertype == 0)
 				{
-					$acct_level = $result['Type'];
-					if($acct_level == 0)
-					{
-						$_SESSION['level'] = 'mev8vy_b';
-					}
-					else if ($acct_level == 1)
-					{
-						$_SESSION['level'] = 'mev8vy_d';
-					}
-					else if ($acct_level == 2)
-					{
-						$_SESSION['level'] = 'mev8vy_a';
-					}
-					
-					#echo $disp_rideavg;
+					$_SESSION['level'] = 'mev8vy_b';
 				}
-				
+				else if ($usertype == 1)
+				{
+					$_SESSION['level'] = 'mev8vy_d';
+				}
+				else if ($usertype == 2)
+				{
+					$_SESSION['level'] = 'mev8vy_a';
+				}
 			}
-			else
-			{
-				#error handling
-			}
+			
+			$statement->close();
+			
 			
 			
 			
 			
 			#$_SESSION['user'] = $_POST['username'];
 			#$_SESSION['pwd'] = $_POST['pwd'];
-			#from here on out, every time you want to connect to the db call the loginConnection function with the $_SESSION['user'] and 
-			# $_SESSION['pwd'] as arguments
+			#from here on out, every time you want to connect to the db call the loginConnection function with the $_SESSION['level'] and 
+			# $_SESSION['levelpwd'] as arguments
 			
 			header('Location: main_page.php');
 		}
