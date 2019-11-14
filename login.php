@@ -10,6 +10,12 @@
 <body>
 <?php session_start(); ?>
 <?php
+
+	$_SESSION['user'] = "";
+	$_SESSION['pwd'] = "";
+	$_SESSION['level'] ="";
+	$_SESSION['levelpwd'] = "";
+
 	$gen_error = "";
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{

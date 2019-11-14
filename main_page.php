@@ -8,8 +8,23 @@
   <title>Login</title>    
 </head>
 
+<?php session_start();?>
+<?php 
 
-<?php session_start(); ?>
+$logged_in = "Yes";
+
+if(empty($_SESSION['user']) and empty($_SESSION['user']))
+	{
+			$_SESSION['user'] = "";
+			$_SESSION['pwd'] = "";
+			$_SESSION['level'] = "";
+			$_SESSION['levelpwd'] = "";
+			$logged_in = "No";
+			
+	}
+
+
+ ?>
 
 
 <script>
@@ -17,6 +32,19 @@ function prep_list()
 		{
 			
 			var usr_level  = <?php echo json_encode($_SESSION['level']); ?>;
+			var logged_in = <?php echo json_encode($logged_in); ?>;
+			if(usr_level == 'mev8vy_b' || logged_in == 'No')
+			{
+				usr_level = 0;
+			}
+			else if (usr_level == 'mev8vy_d')
+			{
+				usr_level = 1;
+			}
+			else if(usr_level =='mev8vy_a'){
+				usr_level = 2;
+			}
+			
 			<!-- We print a few things common to all users-->
 			var page_ol = document.getElementById("list_of_pages");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
@@ -63,6 +91,19 @@ function prep_list()
 				}
 			}
 			
+			var logoutdiv = document.getElementById("logout");
+			var logoutlink = document.createElement("p");
+			if(logged_in == "Yes")
+			{
+				
+				logoutlink.innerHTML = "<a class = 'tiny' href = 'logout.php' title = 'Sign Out'>Sign Out</a>";
+				
+			}
+			else{
+				logoutlink.innerHTML= "You are not logged in";
+			}
+			logoutdiv.appendChild(logoutlink);
+			
 		}
 		</script>
 <body onload = "prep_list();">
@@ -71,11 +112,17 @@ function prep_list()
 	</header>
 	
   <div class = "row justify-content-left" id = "page_list">
+		
 		<ol id = "list_of_pages">
 			
 		</ol>
-		<a href = "account.php" />Edit my account </a>
-		<a href = "class_search_test_home.php" />Course Search </a>
+		</br>
+		
+		
+	</div>
+	<div class = "row justify-content-center" id = "logout">
+	<a href = "account.php" />Edit my account </a></br>
+		<a href = "class_search_test_home.php" />Course Search </a></br>
 	</div>
 	
 </body>
