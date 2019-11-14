@@ -1,26 +1,23 @@
 <?php
+
+session_start();
+require "dbutil.php";
 $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		echo "<p>Logged in</p>";
-
 		if(isset($_GET['order'])){
-			$order = $_GET['oreder'];
+			$order = $_GET['order'];
 		}else{
-			$order = ''; #column nae of default sorting
-
+			$order = 'course_name'; #column nae of default sorting
 		}
 		if(isset($_GET['sort'])){
 			$sort = $_GET['sort'];
 		}else{
-			$sort = 'ASC'
+			$sort = 'ASC';
 		}
-
-		$resultSet = $db->query("SELECT * FROM P_COURSES ORDER BY $order $sort"
-		); #the columb name 
-
-		if($resultSet->num_rows > 0){
-
-			$sort == 'DESC' ? sort = 'ASC' : $sort ='DESC';
-
+		$resultSet = $db->query("SELECT * FROM P_COURSES ORDER BY $order $sort"); #the columb name 
+		
+		if(!empty($resultSet) && $resultSet->num_rows > 0){
+			$sort == 'DESC' ? $sort = 'ASC' : $sort ='DESC';
 			echo"
 			<table border = '1'>
 				<tr>
@@ -29,25 +26,21 @@ $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 			";
 			while($rows = $resultSet->fetch_assoc())
 			{
-				$course_id = $rows['course_id']#the column of course_id would be displayed
-				$course_name = $rows['course_name']
+				$course_id = $rows['course_id'];#the column of course_id would be displayed
+				$course_name = $rows['course_name'];
 				#all the columns we want to sort
-
 				echo"
 				<tr>
 					<td>$course_id</td>
 					<td>$course_name</td>
-
 				</tr>
 				";
 			}
-
 			echo"
 			</table>
 			";
-
 		}else{
-
+			echo "Guess there's nothing";
 		}
 		$db->close();
 ?>
