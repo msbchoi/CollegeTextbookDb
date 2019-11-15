@@ -1,9 +1,9 @@
 <?php
 		session_start();
-		echo "<p>Session started</p>";
+		
         require "dbutil.php";
         $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
-		echo "<p>Logged in</p>";
+		
         $stmt = $db->stmt_init();
 
         if($stmt->prepare("select * from P_COURSES where course_name like ?") or die(mysqli_error($db))) {
