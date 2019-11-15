@@ -1,9 +1,7 @@
-
-
 <?php session_start(); ?>
 <?php
-
 require('dbutil.php');
+require('/js/jquery-3.4.1.min.js')
 $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 //level and levelpwd
 echo "<p>Logged in</p>";
@@ -12,7 +10,7 @@ echo "<p>Logged in</p>";
 
 <head>
 <meta charset="utf-8">
-<title>Add a new Professor</title>
+<title> Add a Graduation Requirement! </title>
 </head>
 
 <body>	
