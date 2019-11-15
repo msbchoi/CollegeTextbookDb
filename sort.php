@@ -21,8 +21,8 @@ $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 			echo"
 			<table border = '1'>
 				<tr>
-					<th><a herf = '?order=course_id&sort=$sort'>course_id</a></th>
-					<th><a herf = '?order=course_name&sort=$sort'>course_name</a></th> 
+					<th><a href = '?order=course_id&sort=$sort'>course_id</a></th>
+					<th><a href = '?order=course_name&sort=$sort'>course_name</a></th> 
 			";
 			while($rows = $resultSet->fetch_assoc())
 			{
