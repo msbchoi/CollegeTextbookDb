@@ -6,14 +6,15 @@
 </head>
 <body>
 <?php
-/*
+
     require "dbutil.php";
     $db = DbUtil::loginConnection('mev8vy', 'ahG1zee5');
 	$stmt = $db->stmt_init();
-  */  
+/*  
     require('dbutil.php');
     $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
-    
+    $stmt = $db->stmt_init();
+  */
     ?>
     <form action ="course_inserter.php" method= "post">
         <label>Course Id Number: </label>

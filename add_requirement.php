@@ -15,23 +15,19 @@ echo "<p>Logged in</p>";
 
 <body>	
     <form action ="#" method= "post">
-        <label>First Name: </label>
-        <input type = "text" name = "staff_first_name" required /> <br/>
         
-        <label>Middle Initial: </label>
-        <input type = "text" name = "staff_middle_inital" size = "2" /> <br/>
-        
-        <label>Last Name: </label>
-        <input type = "text" name = "staff_last_name" required /> <br/>
-
-        <label>Office Location: </label>
-        <input type = "text" name = "office_location" size = "50"/></br>
-
-        <label>Office Hours: </label>
-        <input type = "text" name = "office_hour" size = "40"/></br>
+        <label>Requirement Name: </label>
+        <input type = "text" name = "requirement_name" size = "40" required /> <br/>
 
         <label>Department Id Number </label>
         <input type = "number" name = "department_id"/></br>
+
+        <label>Number of Courses Required to Fulfill Requirement: </label>
+        <input type = "number" name = "number_of_courses" /></br>
+
+        <label>Courses that Fulfill The Requirements: </label>
+        <input type = "number" name = "number_of_courses" /></br>
+
         <input type="submit" value="Add" name="action" />
     </form>
 
