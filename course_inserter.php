@@ -28,14 +28,7 @@ echo "<p>Logged in</p>";
 
 
 
-$sql="INSERT INTO P_COURSES (course_id, course_name, number_of_credits)
-VALUES
-('$_POST[course_id]','$_POST[course_name]','$_POST[number_of_credits]')";
-if (!mysqli_query( $db, $sql)){
-    die('Error: ' . mysqli_error($db));
-}else{
-    echo "Successfully added into the courses_id table";
-}
+/*
 
 $sql="INSERT INTO P_TAUGHT_BY (course_id, staff_id, professor_reviews )
 VALUES
@@ -45,6 +38,34 @@ if (!mysqli_query( $db, $sql)){
 }else{
     echo "Successfully added into the Taught_by table";
 }
+*/
+
+
+$sql="INSERT INTO P_COURSES (course_id, course_name, number_of_credits)
+VALUES
+('$_POST[course_id]','$_POST[course_name]','$_POST[number_of_credits]')";
+if (!mysqli_query( $db, $sql)){
+    die('Error: ' . mysqli_error($db));
+}else{
+    echo "Successfully added into the courses_id table";
+}
+
+
+if(isset( $_POST["professor_id"])){
+    foreach( $_POST["professor_id"] as $oneprofid){
+        $sql="INSERT INTO P_TAUGHT_BY (course_id, staff_id, professor_notes )
+        VALUES
+        ('$_POST[course_id]', $oneprofid, $_POST[professor_notes])";
+        if (!mysqli_query( $db, $sql)){
+            die('Error: ' . mysqli_error($db));
+        }else{
+            echo "Successfully added into the Taught_by table";
+        }
+    }
+}
+
+
+
 
 $sql="INSERT INTO P_BELONGS (course_id, department_id  )
 VALUES
