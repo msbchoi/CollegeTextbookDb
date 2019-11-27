@@ -42,9 +42,9 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     <form action ="course_inserter.php" method= "post">
         
             <label>Course Id Number: </label>
-            <input type = "text" name = "course_id" required /> <br/>
+            <input type = "text" name = "course_id" placeholder = "1110" required /> <br/>
             <label>Course Name: </label>
-            <input type = "text" name = "course_name" placeholder = "CS:1110 Intro to Programming" size  = 50 required/> <br/>
+            <input type = "text" name = "course_name" placeholder = "Intro to Programming" size  = 50 required/> <br/>
             <label>Number of Credits: </label>
             <input type = "number" name = "number_of_credits" min = "0" max = "5"/> </br>
             <label>Department Id Number </label>
