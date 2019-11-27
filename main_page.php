@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-  <meta name="author" content="Matt Vick, Yoon Kim">
+  <meta name="author" content="Minsoo Choi, Matt Vick, Shen Yan, Coco Zhang">
   <title>Login</title>    
 </head>
 
@@ -48,9 +48,11 @@ function prep_list()
 			<!-- We print a few things common to all users-->
 			var page_ol = document.getElementById("list_of_pages");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
-			var common_urls = ["search", "page2", "page3"];
+			var common_urls = ["class_search_test_home", "account", "sort", "export"];
+			
+			
 			<!-- this array contains the hyperlink text, like "Click here to see all classes" -->
-			var common_desc = ["Search for class", "Go to page 2", "Go to page 3"];
+			var common_desc = ["Search for class", "Edit My Account", "Course Sorting Test", "Export Data"];
 			
 			<!--urls and descriptions for teacher only pages -->
 			var teacher_urls = ["Teacherurl1"];
@@ -100,7 +102,7 @@ function prep_list()
 				
 			}
 			else{
-				logoutlink.innerHTML= "You are not logged in";
+				logoutlink.innerHTML= "You are not logged in <a class = 'tiny' href='login.php' title='Sign In'>Sign in</a> or <a class='tiny' href='signup.php' title='Sign up'>Sign up</a>";
 			}
 			logoutdiv.appendChild(logoutlink);
 			
@@ -109,6 +111,7 @@ function prep_list()
 <body onload = "prep_list();">
     <header class="logo">
 	  <h1 class = "main_title">Main page</h1>
+	  <h3><?php if(!empty($_SESSION['user'])){ echo "Welcome ",$_SESSION['user'];} ?></h3>
 	</header>
 	
   <div class = "row justify-content-left" id = "page_list">
@@ -120,9 +123,9 @@ function prep_list()
 		
 		
 	</div>
+	
 	<div class = "row justify-content-center" id = "logout">
-	<a href = "account.php" />Edit my account </a></br>
-		<a href = "class_search_test_home.php" />Course Search </a></br>
+	
 	</div>
 	
 </body>

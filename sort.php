@@ -1,9 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+  <meta name="author" content="Minsoo Choi, Matt Vick, Shen Yan, Coco Zhang">
+  <title>Sort Test</title>    
+</head>
+
 <?php
 
 session_start();
 require "dbutil.php";
 $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
-		echo "<p>Logged in</p>";
+		#echo "<p>Logged in</p>";
 		if(isset($_GET['order'])){
 			$order = $_GET['order'];
 		}else{
@@ -44,3 +54,9 @@ $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		}
 		$db->close();
 ?>
+
+<body>
+ <a href="main_page.php" class="btn btn-light">Go back</a>
+</body>
+
+</html>
