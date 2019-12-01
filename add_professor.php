@@ -16,6 +16,8 @@ echo "<p>Logged in</p>";
 </head>
 
 <body>	
+
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
     <form action ="professor_inserter.php" method= "post">
         <label>First Name: </label>
         <input type = "text" name = "staff_first_name" required /> <br/>
@@ -39,6 +41,20 @@ echo "<p>Logged in</p>";
 
 
 <?php
+
+
+$stmt = $db->stmt_init();
+if($stmt->prepare("select * from P_DEPARTMENT") or die(mysqli_error($db))) {
+        $stmt->execute();
+        $stmt->bind_result($department_id, $department_name);
+        echo "<table border=1><th>Department Name</th><th>Department Id</th></th>\n";
+        while($stmt->fetch()) {
+                echo "<tr><td>$department_name</td><td>$department_id</td></tr>";
+        }
+        echo "</table>";
+
+        $stmt->close();
+}
 //Order in which we have to insert.
 // ADD DEPARTMENT -> ADD PROFESSOR -> ADD COURSE -> ADD REQUIREMENTS
 //                                               -> ADD TEXTBOOK.

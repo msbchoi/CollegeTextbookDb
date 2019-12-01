@@ -8,6 +8,8 @@ echo "<p>Logged in</p>";
 <html>
 <body>
 
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+
 <?php
 
 $sql="INSERT INTO P_REQUIREMENT (req_id, req_name, number_of_courses)

@@ -7,6 +7,9 @@ echo "<p>Logged in</p>";
 ?>
 <html>
 <body>
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+<button onclick="window.location.href='add_professor.php'"> Add Another Professor </button>
+
 <?php
 
 $sql="INSERT INTO P_STAFF ( staff_id ,staff_first_name, staff_last_name, staff_middle_initial)
@@ -45,4 +48,7 @@ if (!mysqli_query( $db, $sql)){
 
 ?>
 </body>
+
+
+
 </html>

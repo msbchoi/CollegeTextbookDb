@@ -6,6 +6,9 @@ echo "<p>Logged in</p>";
 ?>
 <html>
 <body>
+
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+
 <?php
 //Order in which we have to insert.
 // ADD DEPARTMENT -> ADD PROFESSOR -> ADD COURSE -> ADD REQUIREMENTS

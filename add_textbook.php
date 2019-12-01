@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert into the Textbook</title>
+<title>Add a Textbook</title>
 <script src=" 
 https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
     </script> 
@@ -27,6 +27,8 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
 </head>
 <body>
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+
 <?php
 
     session_start();
@@ -44,7 +46,7 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
             <label>Textbook Edition: </label>
             <input type = "text" name = "textbook_edition" placeholder = "1.00"/> <br/>
             <label>Textbook Price: </label>
-            <input type = "number" name = "textbook_price" placeholder = 60.00 /> </br>
+            <input type = "text" name = "textbook_price" placeholder = 60.00 /> </br>
             <label>Textbook for Course Id: </label> 
                 <input type = "number" name = "course_id" placeholder = "4750" /> </br>
                 

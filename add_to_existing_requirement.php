@@ -35,14 +35,10 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     
 
 
-    <form action ="requirement_inserter.php" method= "post">
+    <form action ="requirement_modifier.php" method= "post">
         
-            <label>Requirement Name: </label>
+            <label>Requirement ID </label>
             <input type = "text" name = "req_name" placeholder = "BACS Graduation:" size  = 50 required/> <br/>
-            <label>Number of Courses: </label>
-            <input type = "number" name = "number_of_courses" min = "0" max = "100"/> </br>
-            <label>Department Id Number </label>
-            <input type = "number" name = "department_id"/></br>
             <o2>
                 <label> Course Id Numbers </label>
                 <input type = "number" name = "course_id[]"/></br>
@@ -55,12 +51,12 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </div>
         <?php        
         $stmt = $db->stmt_init();
-                    if($stmt->prepare("select * from P_DEPARTMENT") or die(mysqli_error($db))) {
+                    if($stmt->prepare("select * from P_REQUIREMENT NATURAL JOIN P_FULFILLS") or die(mysqli_error($db))) {
                             $stmt->execute();
-                            $stmt->bind_result($department_id, $department_name);
-                            echo "<table border=1><th>Department Name</th><th>Department Id</th></th>\n";
+                            $stmt->bind_result($req_id, $req_name, $number_of_courses, $course_id);
+                            echo "<table border=1><th>Requirement ID</th><th>Requirement Name</th><th>Num Courses to Fill Req</th><th>Course Id</th>\n";
                             while($stmt->fetch()) {
-                                    echo "<tr><td>$department_name</td><td>$department_id</td></tr>";
+                                echo "<tr><td>$req_id </td><td>$req_name</td><td> $number_of_courses</td><td> $course_id</td></tr>";
                             }
                             echo "</table>";
 
@@ -68,6 +64,7 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
                     }
 
         ?>
+
 
 </body>
 
