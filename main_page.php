@@ -55,14 +55,14 @@ function prep_list()
 			var common_desc = ["Search for class", "Edit My Account", "Course Sorting Test", "Export Data"];
 			
 			<!--urls and descriptions for teacher only pages -->
-			var teacher_urls = ["add_course", "add_textbook"];
-			var teacher_desc = ["Add New Course", "Add Textbook for Course"];
+			var teacher_urls = ["add_course", "will_teach", "add_textbook"];
+			var teacher_desc = ["Add New Course", "Add Professor To Existing Course", "Add Textbook for Course"];
 			
 			<!-- Fill this next array with whatever stuff only the admins, the highest privilege users should be able to see -->
 		
 
-			var admin_urls = ["add_department", "add_professor", "add_requirement"];
-			var admin_desc = ["Add Department", "Add Professor", "Add Requirement"];
+			var admin_urls = ["add_department", "add_professor", "add_requirement", "add_to_existing_requirement"];
+			var admin_desc = ["Add Department", "Add Professor", "Add Requirement", "Add Course to Existing Requirement"];
 			
 			
 			for(i=0; i< common_urls.length; i++)
