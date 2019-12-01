@@ -8,7 +8,7 @@ echo "<p>Logged in</p>";
 <html>
 <body>
 <button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
-<button onclick="window.location.href='add_course.php'"> Add Another Course</button>
+<button onclick="window.location.href='will_teach.php'"> Add Professors to Existing Courses</button>
 
 <?php
 //Order in which we have to insert.
@@ -31,47 +31,6 @@ echo "<p>Logged in</p>";
 
 
 
-/*
-
-$sql="INSERT INTO P_TAUGHT_BY (course_id, staff_id, professor_reviews )
-VALUES
-('$_POST[course_id]','$_POST[professor_id]', '')";
-if (!mysqli_query( $db, $sql)){
-    die('Error: ' . mysqli_error($db));
-}else{
-    echo "Successfully added into the Taught_by table";
-}
-*/
-
-
-$sql="INSERT INTO P_COURSES (course_id, course_name, number_of_credits)
-VALUES
-('$_POST[course_id]','$_POST[course_name]','$_POST[number_of_credits]')";
-if (!mysqli_query( $db, $sql)){
-    die('Error: ' . mysqli_error($db) );
-}else{
-    echo "Successfully added into the courses_id table \n";
-    echo "";
-}
-
-
-/*
-$numAuthors = count($lastnames);
-echo("There are $numAuthors author(s) </br>" );
-for($i = 0; $i < $numAuthors; $i++){
-    $sql = "INSERT INTO P_TEXTBOOK_AUTHOR (textbook_id, author_first_name, author_last_name, author_middle_initial)
-    VALUES
-    ($textbook_id, '$firstnames[$i]', '$lastnames[$i]', '$middleInitials[$i]')";
-    if (!mysqli_query( $db, $sql)){
-        die('Error: ' . mysqli_error($db));
-    }else{
-        echo "Author was added into the textbook_authors table";
-    }
-
-    
-
-}
-*/
 
 
 if(isset( $_POST["professor_id"])){
@@ -90,18 +49,6 @@ if(isset( $_POST["professor_id"])){
 
 
 
-
-
-$sql="INSERT INTO P_BELONGS (course_id, department_id  )
-VALUES
-('$_POST[course_id]','$_POST[department_id]')";
-if (!mysqli_query( $db, $sql)){
-    die('Error P_Belongs:  ' . mysqli_error($db));
-}else{
-    echo "Successfully added Course's Department \n";
-    echo "";
-//    header("add_course.php");
-}
 
 
 //

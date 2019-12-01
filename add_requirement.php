@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert into the Textbook</title>
+<title>Add a new Requirement</title>
 <script src=" 
 https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
     </script> 
@@ -23,6 +23,8 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
 </head>
 <body>
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+
 <?php
 
     session_start();
@@ -51,6 +53,22 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         <button id ="addcourse"> Add another course to the requirements </button>
     <div>
     </div>
+        <?php        
+        $stmt = $db->stmt_init();
+                    if($stmt->prepare("select * from P_DEPARTMENT") or die(mysqli_error($db))) {
+                            $stmt->execute();
+                            $stmt->bind_result($department_id, $department_name);
+                            echo "<table border=1><th>Department Name</th><th>Department Id</th></th>\n";
+                            while($stmt->fetch()) {
+                                    echo "<tr><td>$department_name</td><td>$department_id</td></tr>";
+                            }
+                            echo "</table>";
+
+                            $stmt->close();
+                    }
+
+        ?>
+
 </body>
 
 

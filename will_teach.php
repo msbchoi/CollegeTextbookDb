@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Add a New Course</title>
+<title>Add Professors to Existing Courses</title>
 <script src=" 
 https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
     </script> 
@@ -40,20 +40,10 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     
 
 
-    <form action ="course_inserter.php" method= "post">
+    <form action ="will_teach_inserter.php" method= "post">
         
             <label>Course Id Number: </label>
             <input type = "text" name = "course_id" placeholder = "1110" required /> <br/>
-            <label>Course Name: </label>
-            <input type = "text" name = "course_name" placeholder = "Intro to Programming" size  = 50 required/> <br/>
-            <label>Number of Credits: </label>
-            <input type = "number" name = "number_of_credits" min = "0" max = "5"/> </br>
-            <label>Department Id Number </label>
-            <input type = "number" name = "department_id"/></br>        
-            <!--
-            <label>Professor Notes: </label>
-            <input type = "text" name = "professor_notes" placeholder = "Optional: Write up to a 200 character note about the course." size  = 200/> <br/>
-            -->
             <o2>
                 <label> Professor Id Number </label>
                 <input type = "number" name = "professor_id[]"/></br> <!-- The nice thing about course ids -->
@@ -80,20 +70,24 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 
                     $stmt->close();
             }
+
+            
+        $stmt = $db->stmt_init();
+            if($stmt->prepare("SELECT * FROM `P_COURSES` ORDER BY `P_COURSES`.`course_id` ASC") or die(mysqli_error($db))) {
+                    $stmt->execute();
+                    $stmt->bind_result($course_id, $coursename, $numberCredits);
+                    echo "<table border=1><th>Course ID</th><th>Course Name</th><th>Number of Credits</th>\n";
+                    while($stmt->fetch()) {
+                            echo "<tr><td>$course_id</td><td>$coursename</td><td>$numberCredits</td></tr>";
+                    }
+                    echo "</table>";
+
+                    $stmt->close();
+            }
         
 
-        $stmt = $db->stmt_init();
-                    if($stmt->prepare("select * from P_DEPARTMENT") or die(mysqli_error($db))) {
-                            $stmt->execute();
-                            $stmt->bind_result($department_id, $department_name);
-                            echo "<table border=1><th>Department Name</th><th>Department Id</th></th>\n";
-                            while($stmt->fetch()) {
-                                    echo "<tr><td>$department_name</td><td>$department_id</td></tr>";
-                            }
-                            echo "</table>";
+        
 
-                            $stmt->close();
-                    }
         ?>
   
     

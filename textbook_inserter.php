@@ -7,6 +7,9 @@ echo "<p>Logged in</p>";
 ?>
 <html>
 <body>
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+<button onclick="window.location.href='add_textbook.php'"> Add Another Textbook</button>
+
 
 <?php
 /*
