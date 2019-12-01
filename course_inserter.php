@@ -51,11 +51,30 @@ if (!mysqli_query( $db, $sql)){
 }
 
 
+/*
+$numAuthors = count($lastnames);
+echo("There are $numAuthors author(s) </br>" );
+for($i = 0; $i < $numAuthors; $i++){
+    $sql = "INSERT INTO P_TEXTBOOK_AUTHOR (textbook_id, author_first_name, author_last_name, author_middle_initial)
+    VALUES
+    ($textbook_id, '$firstnames[$i]', '$lastnames[$i]', '$middleInitials[$i]')";
+    if (!mysqli_query( $db, $sql)){
+        die('Error: ' . mysqli_error($db));
+    }else{
+        echo "Author was added into the textbook_authors table";
+    }
+
+    
+
+}
+*/
+
+
 if(isset( $_POST["professor_id"])){
-    foreach( $_POST["professor_id"] as $oneprofid){
-        $sql="INSERT INTO P_TAUGHT_BY (course_id, staff_id, professor_notes )
+    foreach( $_POST["professor_id"] as $oneprofid ){
+        $sql="INSERT INTO P_TAUGHT_BY (course_id, staff_id )
         VALUES
-        ('$_POST[course_id]', $oneprofid, $_POST[professor_notes])";
+        ('$_POST[course_id]', $oneprofid)";
         if (!mysqli_query( $db, $sql)){
             die('Error: ' . mysqli_error($db));
         }else{
@@ -67,11 +86,12 @@ if(isset( $_POST["professor_id"])){
 
 
 
+
 $sql="INSERT INTO P_BELONGS (course_id, department_id  )
 VALUES
 ('$_POST[course_id]','$_POST[department_id]')";
 if (!mysqli_query( $db, $sql)){
-    die('Error: ' . mysqli_error($db));
+    die('Error P_Belongs:  ' . mysqli_error($db));
 }else{
     echo "Successfully added into the Taught_by table";
 }

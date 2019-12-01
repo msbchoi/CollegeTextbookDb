@@ -49,9 +49,10 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
             <input type = "number" name = "number_of_credits" min = "0" max = "5"/> </br>
             <label>Department Id Number </label>
             <input type = "number" name = "department_id"/></br>        
+            <!--
             <label>Professor Notes: </label>
             <input type = "text" name = "professor_notes" placeholder = "Optional: Write up to a 200 character note about the course." size  = 200/> <br/>
-            
+            -->
             <o2>
                 <label> Professor Id Number </label>
                 <input type = "number" name = "professor_id[]"/></br> <!-- The nice thing about course ids -->
