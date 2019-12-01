@@ -5,6 +5,9 @@
 <title>Insert a new Department</title>
 </head>
 <body>
+
+<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
+
 <?php
     require "dbutil.php";
 	$db = DbUtil::loginConnection('mev8vy_a', 'ahG1zee5');

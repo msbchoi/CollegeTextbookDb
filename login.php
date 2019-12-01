@@ -95,6 +95,8 @@
       <span class="error"><?php echo $gen_error;?></span><br/>
 	  <input type="submit" value="Sign in" class="btn btn-light"  />   
     </form>
+	<button onclick="window.location.href='signup.php'"> Sign Up</button>
+
   </div>
 </body>
 </html>
