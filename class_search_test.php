@@ -2,7 +2,7 @@
 		session_start();
 		echo "<p>Session started</p>";
         require "dbutil.php";
-        $db = DbUtil::loginConnection($_SESSION['user'], $_SESSION['pwd']);
+        $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		echo "<p>Logged in</p>";
         $stmt = $db->stmt_init();
 
