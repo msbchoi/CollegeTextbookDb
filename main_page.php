@@ -48,11 +48,11 @@ function prep_list()
 			<!-- We print a few things common to all users-->
 			var page_ol = document.getElementById("list_of_pages");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
-			var common_urls = ["class_search_test_home", "account", "sort", "export", "Search_For_Textbook_Information_Home"];
+			var common_urls = ["class_search_test_home", "account", "sort", "export", "Search_For_Textbook_Information_Home", "Search_By_Requirements_Home"];
 			
 			
 			<!-- this array contains the hyperlink text, like "Click here to see all classes" -->
-			var common_desc = ["Search for class", "Edit My Account", "Course Sorting Test", "Export Data", "Search for Textbook By Classname"];
+			var common_desc = ["Search for class", "Edit My Account", "Course Sorting Test", "Export Data", "Search for Textbook By Classname", "Search for Classes By Requirements"];
 			
 			<!--urls and descriptions for teacher only pages -->
 			var teacher_urls = ["add_course", "will_teach", "add_textbook"];
