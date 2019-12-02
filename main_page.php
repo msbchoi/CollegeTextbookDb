@@ -36,7 +36,11 @@ function prep_list()
 			}
 			
 			<!-- We print a few things common to all users-->
-			var page_ol = document.getElementById("list_of_pages");
+			var student_ol = document.getElementById("student_menu");
+			var professor_ol = document.getElementById("professor_menu");
+			var prof_d = document.getElementById("prof_drop");
+			var admin_ol = document.getElementById("admin_menu");
+			var ad_d = document.getElementById("admin_drop");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
 			var common_urls = ["class_search_test_home", "account", "sort", "export"];
 			
@@ -60,26 +64,28 @@ function prep_list()
 					
 					var page_li = document.createElement("LI");
 					page_li.innerHTML = "<a href = \""+common_urls[i]+".php\"/>"+common_desc[i]+"</a>";
-					page_ol.appendChild(page_li);
+					student_ol.appendChild(page_li);
 					
 				}
 			
 			if(usr_level >= 1)
 			{
+				prof_d.style.display = 'block';
 				for(i = 0; i<teacher_urls.length; i++)
 				{
 					var page_li = document.createElement("LI");
 					page_li.innerHTML = "<a href = \""+teacher_urls[i]+".php\"/>"+teacher_desc[i]+"</a>";
-					page_ol.appendChild(page_li);
+					professor_ol.appendChild(page_li);
 				}
 			} 
 			if(usr_level == 2)
 			{
+				ad_d.style.display='block';
 				for(i = 0; i<admin_urls.length; i++)
 				{
 					var page_li = document.createElement("LI");
 					page_li.innerHTML = "<a href = \""+admin_urls[i]+".php\"/>"+admin_desc[i]+"</a>";
-					page_ol.appendChild(page_li);
+					admin_ol.appendChild(page_li);
 				}
 			}
 			
@@ -132,55 +138,51 @@ function prep_list()
 		                <i class="ti-menu"></i>
 		            </div>
 		            <div class="module-group right">
-		                <div class="module left">
+		                <div class="module left" >
 		                    <ul class="menu">
 		                        
 		                        <li class="has-dropdown">
 		                            <a href="#">
-		                                Mega Menu
+		                                Student
 		                            </a>
 		                            <ul class="mega-menu">
 		                                <li>
 		                                    <ul>
-		                                        <li>
-		                                            <span class="title">Column 1</span>
-		                                        </li>
-		                                        <li>
-		                                            <a href="#">Single</a>
+		                                        <li id = "student_menu">
 		                                        </li>
 		                                    </ul>
 		                                </li>
+		                            </ul>
+		                        </li>
+								<li class="has-dropdown" id = 'prof_drop' style="display: none;">
+		                            <a href="#">
+		                                Professor
+		                            </a>
+		                            <ul class="mega-menu" >
 		                                <li>
 		                                    <ul>
-		                                        <li>
-		                                            <span class="title">Column 2</span>
-		                                        </li>
-		                                        <li>
-		                                            <a href="#">Single</a>
+		                                        <li id = "professor_menu">
+		                                            
 		                                        </li>
 		                                    </ul>
 		                                </li>
 		                            </ul>
 		                        </li>
-		                        <li class="has-dropdown">
+								<li class="has-dropdown" id = 'admin_drop' style="display: none;">
 		                            <a href="#">
-		                                Single Dropdown
+		                                Admin
 		                            </a>
-		                            <ul>
-		                                <li class="has-dropdown">
-		                                    <a href="#">
-		                                        Second Level
-		                                    </a>
+		                            <ul class="mega-menu">
+		                                <li>
 		                                    <ul>
-		                                        <li>
-		                                            <a href="#">
-		                                                Single
-		                                            </a>
+		                                        <li id = "admin_menu">
+		                                            
 		                                        </li>
 		                                    </ul>
 		                                </li>
 		                            </ul>
 		                        </li>
+		                        
 		                    </ul>
 		                </div>
 		                
