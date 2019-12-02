@@ -28,7 +28,7 @@
 
 <button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
 	
-	<h3>Search for Textbooks By Class Name!</h3>	
+	<h3>Search for Textbooks By Class Name or Course Id Numbers</h3>	
            
 	<input class="xlarge" id="Classinput" type="search" size="30" placeholder="Class Name Contains"/>
 
