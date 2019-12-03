@@ -38,10 +38,10 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     <form action ="requirement_modifier.php" method= "post">
         
             <label>Requirement ID </label>
-            <input type = "text" name = "req_name" placeholder = "BACS Graduation:" size  = 50 required/> <br/>
+            <input type = "text" name = "req_id" placeholder = "" size  = 50 required/> <br/>
             <o2>
                 <label> Course Id Numbers </label>
-                <input type = "number" name = "course_id[]"/></br>
+                <input type = "number" name = "course_id[]" placeholder = "1110" required/></br>
                 <!-- <input type = "text" name = "course_name[]"/></br> -->
             </o2>
             <input type="submit" value="Add" name="action" />
@@ -51,7 +51,7 @@ https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </div>
         <?php        
         $stmt = $db->stmt_init();
-                    if($stmt->prepare("select * from P_REQUIREMENT NATURAL JOIN P_FULFILLS") or die(mysqli_error($db))) {
+                    if($stmt->prepare("select * from P_REQUIREMENT NATURAL JOIN P_FULFILLS" ) or die(mysqli_error($db))) {
                             $stmt->execute();
                             $stmt->bind_result($req_id, $req_name, $number_of_courses, $course_id);
                             echo "<table border=1><th>Requirement ID</th><th>Requirement Name</th><th>Num Courses to Fill Req</th><th>Course Id</th>\n";

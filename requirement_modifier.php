@@ -19,7 +19,7 @@ $num_courses = count($course_id);
 for($i = 0; $i < $num_courses; $i++){
     $sql = "INSERT INTO P_FULFILLS (course_id, req_id)
     VALUES
-    ( '$course_id[$i]', $_POST['req_id'])";
+    ( '$course_id[$i]', '$_POST[req_id]')";
     if (!mysqli_query( $db, $sql)){
         die('Error: ' . mysqli_error($db));
     }
