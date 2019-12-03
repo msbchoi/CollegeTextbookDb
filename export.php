@@ -3,18 +3,24 @@
 session_start();
 require "dbutil.php";
 $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
-echo "<p>Logged in</p>";
+
 $sql = "SELECT * FROM p_courses";
   $result = $db->query("SELECT * FROM P_COURSES") ;
 ?>
 
 <!DOCTYPE html>
 <html>  
- <head>  
-  <title>Export MySQL data to Excel in PHP</title>  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
+<head>  
+<title>Export MySQL data to Excel in PHP</title>  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Minsoo Choi, Matt Vick, Shen Yan, Coco Zhang">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/theme-nearblack.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
  </head>  
  <body>  
   <div class="container">  
@@ -48,6 +54,11 @@ $sql = "SELECT * FROM p_courses";
      <input type="submit" name="export" class="btn btn-success" value="Export" />
     </form>
    </div>  
-  </div>  
+  </div> 
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/scripts.js"></script>
+ 
  </body>  
 </html>
