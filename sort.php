@@ -32,10 +32,11 @@
 		        
 		        
  </section>
- <section>
+ <section >
 		        <div class="container">
+					
 		            <div class="row">
-		                <div class="col-sm-12 text-center">
+		                <div class="col-sm-5">
 		                    <div class="post-snippet mb64">
 		                        <h4>
 		                            <!-- result list -->
@@ -93,9 +94,15 @@ $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		                    </div>
 		                    
 		                    <hr>
-		                </div>
+						</div>
+						<div class="col-sm-7">
+						<div class="post-snippet mb64">
+	`						<h3> Clicking the <b> title </b> of each column, <br> You could sort the data in <b> ascending/decending </b> order </h3>
+						</div>
+					</div>
 		                
-		            </div>
+					</div>
+					
 		            
 		        </div>
 		        
