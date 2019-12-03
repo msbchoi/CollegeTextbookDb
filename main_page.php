@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-  <meta name="author" content="Minsoo Choi, Matt Vick, Shen Yan, Coco Zhang">
-  <title>Login</title>    
-</head>
-
 <?php session_start();?>
 <?php 
 
@@ -108,25 +98,168 @@ function prep_list()
 			
 		}
 		</script>
-<body onload = "prep_list();">
-    <header class="logo">
-	  <h1 class = "main_title">Main page</h1>
-	  <h3><?php if(!empty($_SESSION['user'])){ echo "Welcome ",$_SESSION['user'];} ?></h3>
-	</header>
-	
-  <div class = "row justify-content-left" id = "page_list">
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>MAIN PAGE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme-nearblack.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+    </head>
+    <body onload = "prep_list();">
+				
+		<div class="nav-container">
+		      
+		    <nav>
+		        <div class="nav-bar">
+		            <div class="module left">
+		                <a href="index.html">
+		                    <img class="logo logo-light" alt="Foundry" src="img/logo-light.png">
+		                    <img class="logo logo-dark" alt="Foundry" src="img/title-black.png">
+		                </a>
+		            </div>
+		            <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
+		                <i class="ti-menu"></i>
+		            </div>
+		            <div class="module-group right">
+		                <div class="module left">
+		                    <ul class="menu">
+		                        
+		                        <li class="has-dropdown">
+		                            <a href="#">
+		                                Mega Menu
+		                            </a>
+		                            <ul class="mega-menu">
+		                                <li>
+		                                    <ul>
+		                                        <li>
+		                                            <span class="title">Column 1</span>
+		                                        </li>
+		                                        <li>
+		                                            <a href="#">Single</a>
+		                                        </li>
+		                                    </ul>
+		                                </li>
+		                                <li>
+		                                    <ul>
+		                                        <li>
+		                                            <span class="title">Column 2</span>
+		                                        </li>
+		                                        <li>
+		                                            <a href="#">Single</a>
+		                                        </li>
+		                                    </ul>
+		                                </li>
+		                            </ul>
+		                        </li>
+		                        <li class="has-dropdown">
+		                            <a href="#">
+		                                Single Dropdown
+		                            </a>
+		                            <ul>
+		                                <li class="has-dropdown">
+		                                    <a href="#">
+		                                        Second Level
+		                                    </a>
+		                                    <ul>
+		                                        <li>
+		                                            <a href="#">
+		                                                Single
+		                                            </a>
+		                                        </li>
+		                                    </ul>
+		                                </li>
+		                            </ul>
+		                        </li>
+		                    </ul>
+		                </div>
+		                
+		                <div class="module widget-handle language left">
+		                    <ul class="menu">
+		                        <li class="has-dropdown">
+		                            <a href="#">ENG</a>
+		                            <ul>
+		                                <li>
+		                                    <a href="#">French</a>
+		                                </li>
+		                                <li>
+		                                    <a href="#">Deutsch</a>
+		                                </li>
+		                            </ul>
+		                        </li>
+		                    </ul>
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </nav>
 		
-		<ol id = "list_of_pages">
+		       
+		
+		</div>
+		
+		<div class="main-container">
+					
 			
-		</ol>
-		</br>
+					
+			
+					
+			
+					
+			<section class="page-title page-title-1 bg-secondary">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-sm-12 text-center">
+		                    <h2 class="uppercase mb0"><?php if(!empty($_SESSION['user'])){ echo "Welcome back ",$_SESSION['user'];} ?></h2>
+		                </div>
+		            </div>
+		            
+		        </div>
+		        
+		        
+		    </section><section class="image-bg overlay parallax pt180 pb180 pt-xs-80 pb-xs-80">
+				<div class="background-image-holder">
+					<img alt="image" class="background-image" src="img/background-black-logo.png">
+				</div>
+				
+				
+				
+			</section>
+					
+			<footer class="footer-2 bg-dark text-center-xs">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="#"><img alt="Logo" class="image-mediem mb8" src="img/logo-white.png"></a>
+						</div>
+					
+						<div class="col-sm-4 text-center">
+							<span class="fade-half">
+								© Copyright 2019 NOLIFE TB - All Rights Reserved
+							</span>
+						</div>
+					
+						
+					</div>
+				</div>
+			</footer>
+		</div>
 		
-		
-	</div>
-	
-	<div class = "row justify-content-center" id = "logout">
-	
-	</div>
-	
-</body>
+				
+	<script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
+				

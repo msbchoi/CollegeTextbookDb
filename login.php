@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-  <title>Login</title>    
-</head>
-
-<body>
 <?php session_start(); ?>
 <?php
 
@@ -84,19 +74,128 @@
 		}
 	}
 ?>  
-    <header class="logo">
-	  <h1 class = "main_title">Welcome back!</h1>
-	</header>
-	
-  <div class="container">
-    <form action="login.php" method="post">
-      <h1> Username: <input type="text" name="username" class="form-control" autofocus required /> </h1>
-      <h1> Password: <input type="password" name="pwd" class="form-control" required /> <span class="error"></h1>
-      <span class="error"><?php echo $gen_error;?></span><br/>
-	  <input type="submit" value="Sign in" class="btn btn-light"  />   
-    </form>
-	<button onclick="window.location.href='signup.php'"> Sign Up</button>
+   
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+				
+		<div class="nav-container">
+		</div>
+		
+		<div class="main-container">
+		<section class="cover fullscreen image-slider slider-all-controls controls-inside parallax">
+		        <ul class="slides">
+		            <li class="overlay image-bg">
+		                <div class="background-image-holder">
+		                    <img alt="image" class="background-image" src="img/home22.jpg">
+		                </div>
+		                <div class="container v-align-transform">
+		                    <div class="row">
+		                        <div class="col-md-6 col-sm-8">
+		                            <h1 class="mb40 mb-xs-16 large">Plan ahead</h1>
+		                            <h6 class="uppercase mb16">A website make you plan EFFICIENTLY</h6>
+		                            <p class="lead mb40">"Plan you work and work your plan."</p>
+		                            
+		                        </div>
+								<div class="col-md-6 col-sm-8">
+									<img alt="Logo" class="image-large mb8" src="img/logo-white.png">
+		                        </div>
+		                    </div>
+		                    
+		                </div>
+		                
+		            </li><li class="overlay image-bg">
+		                <div class="background-image-holder">
+		                    <img alt="image" class="background-image" src="img/home22.jpg">
+		                </div>
+		                <div class="container v-align-transform">
+		                    <div class="row">
+		                        <div class="col-md-6 col-sm-8">
+		                            <h1 class="mb40 mb-xs-16 large">Use resources wisely</h1>
+		                            <h6 class="uppercase mb16">A WEBSITE WHERE YOU COULD GET MATERIALS FOR CLASSES</h6>
+		                            <p class="lead mb40">"Start where you are. Use what you have. Do what you can."</p>
+		                            
+		                        </div>
+								<div class="col-md-6 col-sm-8">
+									<img alt="Logo" class="image-large mb8" src="img/logo-white.png">
+		                        </div>
+		                    </div>
+		                    
+		                </div>
+		                
+		            </li>
+		        </ul>
+		    </section><section>
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-sm-6 col-md-5">
+		                    <h2 class="uppercase">lOGIN</h2>
+		                    <p>Welcome Back. It's time to make some plan towards your life!</p>
+		                    <hr>
 
-  </div>
-</body>
+		                    
+		                </div>
+		                <div class="col-sm-6 col-md-5 col-md-offset-1">
+		                    <form action="login.php" method="post">
+		                        <input type="text" class="form-control" name="username" placeholder="Username" autofocus required />
+		                        <input type="password" class="form-control" name="pwd" placeholder="Password" required /><span class="error">
+		                        <!-- <a class = "btn btn-lg" type="submit" value="Sign in">Sign In</a> -->
+								<input type="submit" value="Sign in" class="btn btn-light"  />   
+		                    </form>
+							<a class = "btn btn-lg" href= "signup.php"> Sign Up</a>
+		                </div>
+		            </div>
+		            
+		        </div>
+		        
+		    </section>			
+			
+					
+			
+					
+			
+					
+			<footer class="footer-2 bg-dark text-center-xs">
+				<div class="container">
+					<div class="row">
+						
+					
+						<div class="col-sm-4 text-center">
+							<span class="fade-half">
+								© Copyright 2019 NOLIFE TEXTBOOK - All Rights Reserved
+							</span>
+						</div>
+					
+						
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+				
+	<script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/flexslider.min.js"></script>
+        <script src="js/parallax.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
+				
+
+
+
+
+
+
