@@ -5,7 +5,7 @@
         $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		
         $stmt = $db->stmt_init();
-
+		
         /*
         $db2 = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		
@@ -46,7 +46,9 @@
         if($stmt->prepare("select * from ((((P_COURSES NATURAL JOIN P_IN) NATURAL JOIN P_TEXTBOOK_ID) NATURAL JOIN P_TEXTBOOK_DETAILS) NATURAL JOIN P_TEXTBOOK_AUTHOR) where course_name like ? OR course_id like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['SearchClassName'] . '%';
                 $stmt->bind_param('ss', $searchString, $searchString);
-                $stmt->execute();
+				$_SESSION['query'] = "select * from ((((P_COURSES NATURAL JOIN P_IN) NATURAL JOIN P_TEXTBOOK_ID) NATURAL JOIN P_TEXTBOOK_DETAILS) NATURAL JOIN P_TEXTBOOK_AUTHOR) where course_name like '".$searchString."' OR course_id like '".$searchString."'";
+                $_SESSION['query_source'] = "textbook_search";
+				$stmt->execute();
                 $stmt->bind_result($textbook_id, $course_id, $course_name, $number_of_credits, $edition, $textbook_name, $textbook_price, $textbook_data, $first_name, $last_name, $middle_initial);
                 echo "<table border=1><th>Course ID</th><th>Course Name</th><th>Textbook Name</th><th>Edition</th><th>Price</th> <th>Author</th>\n";
                 while($stmt->fetch()) {

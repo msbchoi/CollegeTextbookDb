@@ -9,7 +9,9 @@
 
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
 	<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-	<?php session_start(); ?>
+	<?php session_start();
+		$_SESSION['query']= '';
+		$_SESSION['query_source'] = '';?>
 
     
  	<title>Search for Textbooks by Course Name or Course Id</title>
@@ -53,24 +55,26 @@ echo "<p>Logged in</p>";
 
     
     <?php        
-        $stmt = $db->stmt_init();
-                    if($stmt->prepare("select req_id, req_name from P_REQUIREMENT") or die(mysqli_error($db))) {
-                            $stmt->execute();
-                            $stmt->bind_result($req_id, $req_name, );
-                            echo "<table border=1><th>Requirement Name</th><th>Requirement Id</th></th>\n";
-                            while($stmt->fetch()) {
-                                    echo "<tr><td>$req_name</td><td>$req_id</td></tr>";
-                            }
-                            echo "</table>";
+       # $stmt = $db->stmt_init();
+        #            if($stmt->prepare("select req_id, req_name from P_REQUIREMENT") or die(mysqli_error($db))) {
+         #                   $stmt->execute();
+          #                  $stmt->bind_result($req_id, $req_name, );
+           #                 echo "<table border=1><th>Requirement Name</th><th>Requirement Id</th></th>\n";
+            #                while($stmt->fetch()) {
+             #                       echo "<tr><td>$req_name</td><td>$req_id</td></tr>";
+              #              }
+               #             echo "</table>";
 
-                            $stmt->close();
-                    }
+                #            $stmt->close();
+                 #   }
 
         ?>
    
 
 	<br/><br/>
-
+	<form method="post" action="export_page.php">
+				 <input type="submit" name="export" class="btn btn-success" value="Export" />
+				</form>
 
 
 </body>

@@ -5,10 +5,12 @@
         $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 		
         $stmt = $db->stmt_init();
-
+		
         if($stmt->prepare("select * from P_COURSES where course_name like ?") or die(mysqli_error($db))) {
                 $searchString = '%' . $_GET['SearchClassName'] . '%';
                 $stmt->bind_param('s', $searchString);
+				$_SESSION['query'] = "select * from P_COURSES where course_name like "."'".$searchString."'";
+				$_SESSION['query_source']  = "class_search";
                 $stmt->execute();
                 $stmt->bind_result($course_id, $course_name, $number_of_credits);
                 echo "<table border=1><th>Course ID</th><th>Course Name</th><th>Credits</th>\n";
@@ -16,7 +18,7 @@
                         echo "<tr><td>$course_id</td><td>$course_name</td><td>$number_of_credits</td></tr>";
                 }
                 echo "</table>";
-
+				#echo "<p>".$_SESSION['query']."</p>";
                 $stmt->close();
         }
 		else

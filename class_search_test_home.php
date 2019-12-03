@@ -12,7 +12,10 @@
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
 		<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
 		<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-		<?php session_start(); ?>
+		<?php session_start(); 
+			$_SESSION['query'] = '';
+			$_SESSION['query_source'] = '';
+		?>
  		<title>Search for class</title>
 		<script>
 	$(document).ready(function() {
@@ -74,7 +77,9 @@
 					</div>
 					 
 		        </div>
-
+				<form method="post" action="export_page.php">
+				 <input type="submit" name="export" class="btn btn-success" value="Export" />
+				</form>
 		        
 		    </section>
 		

@@ -42,11 +42,11 @@ function prep_list()
 			var admin_ol = document.getElementById("admin_menu");
 			var ad_d = document.getElementById("admin_drop");
 			<!-- Fill this next array with the urls for the pages everyone should be able to see-->
-			var common_urls = ["class_search_test_home", "account", "sort", "export", "Search_For_Textbook_Information_Home", "Search_By_Requirements_Home"];
+			var common_urls = ["class_search_test_home",  "sort",  "Search_For_Textbook_Information_Home", "Search_By_Requirements_Home"];
 			
 			
 			<!-- this array contains the hyperlink text, like "Click here to see all classes" -->
-			var common_desc = ["Search for class", "Edit My Account", "Course Sorting Test", "Export Data", "Search for Textbook By Classname", "Search for Classes By Requirements"];
+			var common_desc = ["Search for class",  "Course Sorting Test",  "Search for Textbook By Classname", "Search for Classes By Requirements"];
 			
 			<!--urls and descriptions for teacher only pages -->
 			var teacher_urls = ["add_course", "will_teach", "add_textbook"];
@@ -141,6 +141,7 @@ function prep_list()
 		                <div class="module left" >
 		                    <ul class="menu">
 		                        
+								
 		                        <li class="has-dropdown">
 		                            <a href="#">
 		                                Student
@@ -168,6 +169,7 @@ function prep_list()
 		                                </li>
 		                            </ul>
 		                        </li>
+								
 								<li class="has-dropdown" id = 'admin_drop' style="display: none;">
 		                            <a href="#">
 		                                Admin
@@ -182,11 +184,44 @@ function prep_list()
 		                                </li>
 		                            </ul>
 		                        </li>
+								<li class="has-dropdown" id = 'account_drop'>
+		                            <a href="#">
+		                                Account
+		                            </a>
+		                            <ul class="mega-menu">
+		                                <li>
+		                                    <ul>
+		                                        <li id = "account_menu">
+													<li>
+														<a href = "account.php"> Edit my Account</a>
+													</li>
+													<li>
+														<a href = "logout.php">Log out</a>
+													</li>
+		                                        </li>
+		                                    </ul>
+		                                </li>
+		                            </ul>
+		                        </li>
+								<li class="has-dropdown" id = 'invis_drop' style="display: none;">
+		                            <a href="#">
+		                                
+		                            </a>
+		                            <ul class="mega-menu">
+		                                <li>
+		                                    <ul>
+		                                        <li id = "invis_menu">
+		                                            
+		                                        </li>
+		                                    </ul>
+		                                </li>
+		                            </ul>
+		                        </li>
 		                        
 		                    </ul>
 		                </div>
 		                
-		                <div class="module widget-handle language left">
+		                <!--<div class="module widget-handle language left">
 		                    <ul class="menu">
 		                        <li class="has-dropdown">
 		                            <a href="#">ENG</a>
@@ -200,7 +235,7 @@ function prep_list()
 		                            </ul>
 		                        </li>
 		                    </ul>
-		                </div>
+		                </div>-->
 		            </div>
 		            
 		        </div>
@@ -222,7 +257,7 @@ function prep_list()
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-sm-12 text-center">
-		                    <h2 class="uppercase mb0"><?php if(!empty($_SESSION['user'])){ echo "Welcome back",$_SESSION['user'];} ?></h2>
+		                    <h2 class="uppercase mb0"><?php if(!empty($_SESSION['user'])){ echo "Welcome back ",$_SESSION['user'];} ?></h2>
 		                </div>
 		            </div>
 		            
