@@ -11,13 +11,19 @@
 <?php session_start(); ?>
 <?php
 	$gen_error = "";
+	
+		require "dbutil.php";
+		
+	
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
+		echo "<h1>".$_POST['username'].'+'.$_POST['pwd'].'+'.$_POST['level']."</h1>";
 		
-		if(!empty($_POST['username']) and !empty($_POST['pwd']) and !empty($_POST['confirm_pwd']) and !empty($_POST['level']) and ($_POST['pwd'] == $_POST['confirm_pwd']))
+		if(!empty($_POST['username']) and !empty($_POST['pwd']) and !empty($_POST['confirm_pwd']) and ($_POST['pwd'] == $_POST['confirm_pwd']))
 		{
 			#to do- add more specific error handling, add a "this user already exists" type thing
-			require "dbutil.php";
+			#require "dbutil.php";
+			echo "<h1>".$_POST['username'].'+'.$_POST['pwd'].'+'.$_POST['level']."</h1>";
 			$host = "cs4750.cs.virginia.edu";
 			$schema = "mev8vy"; 
 			$db = DbUtil::loginConnection('mev8vy_a', 'ahG1zee5');
@@ -70,7 +76,7 @@
 		<h1> Password: <input type="password" name="pwd" class="form-control" required /> <span class="error"></h1>
 		<h1> Confirm Password: <input type="password" name="confirm_pwd" class="form-control" required /> <span class="error"></h1>
 		<h1>I am a: </h1>
-		<input type="radio" name="level" value=0> Student<br>
+		<input type="radio" name="level" checked="checked"  value=0> Student<br>
 		<input type="radio" name="level" value=1> Professor<br>
 		<input type="radio" name="level" value=2> Administrator
       
