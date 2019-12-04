@@ -24,7 +24,8 @@ for($i = 0; $i < $num_courses; $i++){
         die('Error: ' . mysqli_error($db));
     }
 }
-
+$_SESSION['message'] = 'Successfully added course!';
+   header('Location: add_course.php');
 
 
 ?>
