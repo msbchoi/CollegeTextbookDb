@@ -2,7 +2,7 @@
 <?php 
 
 $logged_in = "Yes";
-
+$_SESSION['message'] = '';
 if(empty($_SESSION['user']) and empty($_SESSION['user']))
 	{
 			$_SESSION['user'] = "";
@@ -184,25 +184,29 @@ function prep_list()
 		                                </li>
 		                            </ul>
 		                        </li>
-								<li class="has-dropdown" id = 'account_drop'>
-		                            <a href="#">
-		                                Account
-		                            </a>
-		                            <ul class="mega-menu">
+								<?php 
+								if($_SESSION['user'] != '')
+								{
+								 echo "<li class='has-dropdown' id = 'account_drop'>
+		                            <a href='#'>";
+		                                  echo $_SESSION['user'];
+		                            echo "</a>
+		                            <ul class='mega-menu'>
 		                                <li>
 		                                    <ul>
-		                                        <li id = "account_menu">
+		                                        <li id = 'account_menu'>
 													<li>
-														<a href = "account.php"> Edit my Account</a>
+														<a href = 'account.php'> Edit my Account</a>
 													</li>
 													<li>
-														<a href = "logout.php">Log out</a>
+														<a href = 'logout.php'>Log out</a>
 													</li>
 		                                        </li>
 		                                    </ul>
 		                                </li>
 		                            </ul>
-		                        </li>
+		                        </li>";}
+								?>
 								<li class="has-dropdown" id = 'invis_drop' style="display: none;">
 		                            <a href="#">
 		                                
@@ -236,7 +240,8 @@ function prep_list()
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-sm-12 text-center">
-		                    <h2 class="uppercase mb0">Welcom back!</h2>
+		                    <h2 class="uppercase mb0">Welcome back!</h2>
+							<p><?php if( $_SESSION['user'] == ''){echo 'Please <a href="signup.php">Sign Up</a> or <a href="login.php">Sign In</a> to get the most out of our site!'; }?></p>
 		                </div>
 		            </div>
 		            
