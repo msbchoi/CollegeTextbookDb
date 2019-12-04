@@ -68,7 +68,8 @@ if (!mysqli_query( $db, $sql)){
 */
 //echo("Failed to redirect");
 
-
+$_SESSION['message'] = 'Successfully added professor!';
+   header('Location: will_teach.php');
 
 
 ?>

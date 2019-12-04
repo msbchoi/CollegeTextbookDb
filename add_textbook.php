@@ -58,7 +58,11 @@
 	$stmt = $db->stmt_init();
 */
     session_start();
-
+	if($_SESSION['message'] != '')
+	{
+		echo "<h1>".$_SESSION['message']."</h2>";
+		$_SESSION['message'] = '';
+	}
     require('dbutil.php');
     $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
     $stmt = $db->stmt_init();
@@ -68,7 +72,7 @@
 		            <div class="row">
 		                    <div class="feature bordered">
 		                        
-		                        <form action ="textbook.php" method = "post">
+		                        <form action ="textbook_inserter.php" method = "post">
                                 <label>Textbook Name: </label>
                                 <input type = "text" name = "textbook_name" placeholder = "Name of Textbook:" length = 100 required/> <br/>
                                 <label>Textbook Edition: </label>
@@ -77,6 +81,8 @@
                                 <input type = "text" name = "textbook_price" placeholder = 60.00 /> </br>
                                 <label>Textbook for Course Id: </label> 
                                 <input type = "number" name = "course_id" placeholder = "4750" /> </br>
+								<label>Department Id Number </label>
+                                <input type = "number" name = "department_id"/></br>   
 		                            
 		                            
 		                            <o2>
@@ -97,7 +103,7 @@
             <input type = "text"  name = "textbook_data"    /></br>
             <input type="submit" value="Add" name="action" />
 
-		                            <button type="submit">Add</button>
+		                           <button type="submit">Add</button>
 		                        </form>
 
 		                   

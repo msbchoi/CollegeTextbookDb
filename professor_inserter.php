@@ -44,7 +44,8 @@ if (!mysqli_query( $db, $sql)){
 }else{
     echo "Successfully added into the WORK_FOR table";
 }
-
+$_SESSION['message'] = 'Successfully added Professor!';
+   header('Location: add_professor.php');
 
 ?>
 </body>

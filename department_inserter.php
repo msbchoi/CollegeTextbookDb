@@ -34,7 +34,8 @@ if (!mysqli_query( $db, $sql)){
 }else{
     echo "Successfully added into the department table";
 }
-
+$_SESSION['message'] = 'Successfully added Department!';
+   header('Location: add_department.php');
 ?>
 </body>
 </html>

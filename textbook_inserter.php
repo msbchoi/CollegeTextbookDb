@@ -106,7 +106,8 @@ if (!mysqli_query( $db, $sql)){
 }else{
     echo "Successfully added into the textbook used in Course table";
 }
-
+$_SESSION['message'] = 'Successfully added textbook!';
+   header('Location: add_textbook.php');
 ?>
 
 </body>

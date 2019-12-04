@@ -23,8 +23,9 @@
         });
 
     </script>
+	
     </head>
-    <body>
+    <body >
 				
 		<div class="nav-container">
 		</div>
@@ -55,7 +56,11 @@
 	$stmt = $db->stmt_init();
 */
     session_start();
-
+	if($_SESSION['message'] != '')
+	{
+		echo "<h1>".$_SESSION['message']."</h2>";
+		$_SESSION['message'] = '';
+	}
     require('dbutil.php');
     $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
     $stmt = $db->stmt_init();

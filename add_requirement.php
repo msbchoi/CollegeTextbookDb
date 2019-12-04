@@ -47,7 +47,13 @@
 
     session_start();
     require('dbutil.php');
+	
     $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
+	if($_SESSION['message'] != '')
+	{
+		echo "<h1>".$_SESSION['message']."</h2>";
+		$_SESSION['message'] = '';
+	}
     $stmt = $db->stmt_init();
     ?>
     

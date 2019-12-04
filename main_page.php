@@ -2,7 +2,7 @@
 <?php 
 
 $logged_in = "Yes";
-
+$_SESSION['message'] = '';
 if(empty($_SESSION['user']) and empty($_SESSION['user']))
 	{
 			$_SESSION['user'] = "";

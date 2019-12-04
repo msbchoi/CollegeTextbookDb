@@ -100,9 +100,10 @@ if (!mysqli_query( $db, $sql)){
 }else{
     echo "Successfully added Course's Department \n";
     echo "";
-//    header("add_course.php");
+	
 }
-
+$_SESSION['message'] = 'Successfully added course!';
+   header('Location: add_course.php');
 
 //
 
