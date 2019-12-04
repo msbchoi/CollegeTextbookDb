@@ -36,29 +36,35 @@
 			
 			$statement->execute();
 			$statement->bind_result($user, $userpw, $usertype);
-			#$results = $statement->fetchAll();
-			
-			
-			while($statement->fetch())
+			if(!empty($statement->fetch()))
 			{
-				$_SESSION['user'] = $user;
-				$_SESSION['pwd'] = $userpw;
-				$_SESSION['levelpwd'] = 'ahG1zee5';
-				
-				if($usertype == 0)
-				{
-					$_SESSION['level'] = 'mev8vy_b';
-				}
-				else if ($usertype == 1)
-				{
-					$_SESSION['level'] = 'mev8vy_d';
-				}
-				else if ($usertype == 2)
-				{
-					$_SESSION['level'] = 'mev8vy_a';
-				}
-			}
 			
+				while($statement->fetch())
+				{
+					$_SESSION['user'] = $user;
+					$_SESSION['pwd'] = $userpw;
+					$_SESSION['levelpwd'] = 'ahG1zee5';
+					
+					if($usertype == 0)
+					{
+						$_SESSION['level'] = 'mev8vy_b';
+					}
+					else if ($usertype == 1)
+					{
+						$_SESSION['level'] = 'mev8vy_d';
+					}
+					else if ($usertype == 2)
+					{
+						$_SESSION['level'] = 'mev8vy_a';
+					}
+				}
+				$statement->close();
+				header('Location: main_page.php');
+			}
+			else
+			{
+				$gen_error = "Sorry, we could not find a user matching this username and password";
+			}
 			$statement->close();
 			
 			
@@ -70,7 +76,7 @@
 			#from here on out, every time you want to connect to the db call the loginConnection function with the $_SESSION['level'] and 
 			# $_SESSION['levelpwd'] as arguments
 			
-			header('Location: main_page.php');
+			
 		}
 	}
 ?>  
@@ -150,8 +156,9 @@
 		                <div class="col-sm-6 col-md-5 col-md-offset-1">
 		                    <form action="login.php" method="post">
 		                        <input type="text" class="form-control" name="username" placeholder="Username" autofocus required />
-		                        <input type="password" class="form-control" name="pwd" placeholder="Password" required /><span class="error">
+		                        <input type="password" class="form-control" name="pwd" placeholder="Password" required >
 		                        <!-- <a class = "btn btn-lg" type="submit" value="Sign in">Sign In</a> -->
+								<span class="error"><?php echo $gen_error;?></span><br/>
 								<input type="submit" value="Sign in" class="btn btn-light"  />   
 		                    </form>
 							<a class = "btn btn-lg" href= "signup.php"> Sign Up</a>
