@@ -108,7 +108,7 @@ function prep_list()
 
 
 
-
+<!-- styling source:http://mmra.re/buyjumpstart  foundry -->
 <!doctype html>
 <html lang="en">
     <head>
@@ -221,21 +221,6 @@ function prep_list()
 		                    </ul>
 		                </div>
 		                
-		                <!--<div class="module widget-handle language left">
-		                    <ul class="menu">
-		                        <li class="has-dropdown">
-		                            <a href="#">ENG</a>
-		                            <ul>
-		                                <li>
-		                                    <a href="#">French</a>
-		                                </li>
-		                                <li>
-		                                    <a href="#">Deutsch</a>
-		                                </li>
-		                            </ul>
-		                        </li>
-		                    </ul>
-		                </div>-->
 		            </div>
 		            
 		        </div>
@@ -246,18 +231,12 @@ function prep_list()
 		</div>
 		
 		<div class="main-container">
-					
-			
-					
-			
-					
-			
-					
+		
 			<section class="page-title page-title-1 bg-secondary">
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-sm-12 text-center">
-		                    <h2 class="uppercase mb0"><?php if(!empty($_SESSION['user'])){ echo "Welcome back ",$_SESSION['user'];} ?></h2>
+		                    <h2 class="uppercase mb0">Welcom back!</h2>
 		                </div>
 		            </div>
 		            

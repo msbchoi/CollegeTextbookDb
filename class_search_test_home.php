@@ -39,20 +39,22 @@
 				
 	<!-- navigate bar -->
 		
-		<div class="main-container">
 		
-			<section class="page-title page-title-1 bg-secondary">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-sm-12 text-center">
-		                    <h2 class="uppercase mb0">Welcome back</h2>
-		                </div>
-		            </div>
-		            
-		        </div>
-		        
-		        
-		    </section>
+		<div class="main-container">
+		<section>
+                    <div class = "container">
+                        <div class = "row">
+                            <div class = "col-sm-12 text-center">
+                                <h3>GO BACK</h3>
+                                    <a href="main_page.php">
+                                            <i class="ti ti-hand-point-left icon-lg"></i>
+                                        </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+			
 					
 			<section class="cover fullscreen overlay parallax">
 		        <div class="background-image-holder">

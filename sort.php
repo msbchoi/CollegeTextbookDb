@@ -110,7 +110,18 @@ $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
 
 
 <!-- go back button -->
-<a href="main_page.php" class="btn btn-light">Go back</a>
+<section>
+                    <div class = "container">
+                        <div class = "row">
+                            <div class = "col-sm-12 text-center">
+                                <h3>GO BACK</h3>
+                                    <a href="main_page.php">
+                                            <i class="ti ti-hand-point-left icon-lg"></i>
+                                        </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 <!-- footer -->
 <footer class="footer-2 bg-dark text-center-xs">
 				<div class="container">
