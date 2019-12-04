@@ -29,15 +29,18 @@
 		        <div class="container">
 		            <div class="row">
 		                <div class="col-sm-12 text-center">
-		                    <h2 class="uppercase mb0">Add textbooks</h2>
+		                    <h2 class="uppercase mb0">Add Requirements</h2>
 		                </div>
 		            </div>
 		            
 		        </div>
 		        
-		        
+                <ol class="breadcrumb breadcrumb-2">
+		            <li>
+		                <a href="main_page.php">return to main page</a>
+		            </li>	         
+		        </ol>	        
  </section>
-<button onclick="window.location.href='main_page.php'"> Return to Main Page</button>
 
 <?php
 
@@ -47,6 +50,11 @@
     $stmt = $db->stmt_init();
     ?>
     
+    <section>
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-sm-6">
+		                    <div class="feature bordered">
 
 
     <form action ="requirement_inserter.php" method= "post">
@@ -62,11 +70,16 @@
                 <input type = "number" name = "course_id[]"/></br>
                 <!-- <input type = "text" name = "course_name[]"/></br> -->
             </o2>
+            <a id = "addcourse">
+                                                        <i class="pe-7s-add-user icon-sm"></i> Add another course to the requirement
             <input type="submit" value="Add" name="action" />
     </form>
-        <button id ="addcourse"> Add another course to the requirements </button>
-    <div>
     </div>
+                        </div>
+                        <div class="feature bordered">
+		                        <h4 class="uppercase">reference table</h4>
+		                        <div class = "row">
+                        
         <?php        
         $stmt = $db->stmt_init();
                     if($stmt->prepare("select * from P_DEPARTMENT") or die(mysqli_error($db))) {
@@ -82,6 +95,14 @@
                     }
 
         ?>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+</section>
             <footer class="footer-2 bg-dark text-center-xs">
 				<div class="container">
 					<div class="row">
