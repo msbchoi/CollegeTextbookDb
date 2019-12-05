@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Minsoo Choi, Matt Vick, Shen Yan, Coco Zhang">
+<link href="css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css" media="all"/>s
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -77,7 +78,7 @@
                 <!-- <input type = "text" name = "course_name[]"/></br> -->
             </o2>
             <a id = "addcourse">
-                                                        <i class="pe-7s-add-user icon-sm"></i> Add another course to the requirement
+                                                        <i class="ti ti-bookmark-alt icon-sm"></i> Add another course to the requirement
             <input type="submit" value="Add" name="action" />
     </form>
     </div>
