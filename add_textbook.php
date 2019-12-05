@@ -102,7 +102,7 @@
             <input type = "text"  name = "textbook_data"    /></br>
             <input type="submit" value="Add" name="action" />
 
-		                           <!-- <button type="submit">Add</button>-->
+		                           <button type="submit">Add</button>
 		                        </form>
 
 		                   

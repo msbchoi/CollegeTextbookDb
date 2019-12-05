@@ -54,7 +54,11 @@
 	$stmt = $db->stmt_init();
 */
     session_start();
-
+	if($_SESSION['message'] != '')
+	{
+		echo "<h1>".$_SESSION['message']."</h2>";
+		$_SESSION['message'] = '';
+	}
     require('dbutil.php');
     $db = DbUtil::loginConnection($_SESSION['level'], $_SESSION['levelpwd']);
     $stmt = $db->stmt_init();
@@ -68,7 +72,7 @@
                             <form action ="department_inserter.php" method= "post">
                                 <label>Department_Name: </label>
                                 <input type = "text" name = "department_name" size = 40/></br>
-    </form>		                            
+    	                            
 		                            <button type="submit">Add</button>
 		                        </form>
 		                    </div>
